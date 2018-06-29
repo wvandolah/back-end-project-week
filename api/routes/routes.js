@@ -27,8 +27,8 @@ module.exports = server => {
 
   // routes by user
   server.route('/api/user/:id').get(doWeHaveAToken, getNoteByUser)
-  server.route('/api/sharedNotes/:noteId').put(addShareUser)
-  server.route('/api/sharedNotes/:userId').get(getSharedNotes)
+  server.route('/api/sharedNotes/:noteId').put(doWeHaveAToken, addShareUser)
+  server.route('/api/sharedNotes/:userId').get(doWeHaveAToken, getSharedNotes)
 
   // routes by note
   server.route('/api/note').post(newNote);
